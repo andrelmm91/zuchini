@@ -1,0 +1,126 @@
+{
+  "events": [
+    {
+      "position": { "lat": "52.49730248970071", "lng": "13.469663863158793" },
+      "imageUrl": "https://www.berlinclubs.com/images/katerholzig.jpg",
+      "imageAlt": "mmm",
+      "title": "mmm",
+      "price": "566",
+      "timeStart": "12:04",
+      "timeEnd": "22:03",
+      "date": "2023-04-15",
+      "id": "6ae60c0b-04fb-42bd-9a15-27b47e956f7e"
+    },
+    {
+      "position": { "lat": "52.49918357972328", "lng": "13.449407820678324" },
+      "imageUrl": "https://www.berlinclubs.com/images/katerholzig.jpg",
+      "imageAlt": "kkkl",
+      "title": "kkkl",
+      "price": "33",
+      "timeStart": "04:32",
+      "timeEnd": "04:02",
+      "date": "2023-04-12",
+      "id": "8c920c17-f7d0-46db-a857-a8c2cae3398f"
+    },
+    {
+      "position": { "lat": "52.55370018760178", "lng": "13.436361556029887" },
+      "imageUrl": "https://www.berlinclubs.com/images/katerholzig.jpg",
+      "imageAlt": "ff",
+      "title": "ff",
+      "price": "24",
+      "timeStart": "12:04",
+      "timeEnd": "23:02",
+      "date": "2023-04-20",
+      "id": "5afbf0a7-c8f8-42ad-91ba-a698d5422d2f"
+    },
+    {
+      "position": { "lat": "52.478669407244276", "lng": "13.409358243895703" },
+      "imageUrl": "https://www.berlinclubs.com/images/katerholzig.jpg",
+      "imageAlt": "bnnn",
+      "title": "bnnn",
+      "price": "44",
+      "timeStart": "04:12",
+      "timeEnd": "22:03",
+      "date": "2023-04-11",
+      "id": "8bbc4801-0696-4d80-8b32-e52d88128af3"
+    },
+    {
+      "position": { "lat": "52.48431845437721", "lng": "13.372503523803324" },
+      "imageUrl": "https://www.berlinclubs.com/images/katerholzig.jpg",
+      "imageAlt": "bbb",
+      "title": "bbb",
+      "price": "44",
+      "timeStart": "12:03",
+      "timeEnd": "04:04",
+      "date": "2023-04-20",
+      "id": "0b07e627-5904-4f9f-8ea7-6a3412310812"
+    },
+    {
+      "position": { "lat": "52.52924687138248", "lng": "13.41232896325645" },
+      "imageUrl": "https://www.berlinclubs.com/images/katerholzig.jpg",
+      "imageAlt": "test241",
+      "title": "test241",
+      "price": "124",
+      "timeStart": "12:04",
+      "timeEnd": "04:02",
+      "date": "2023-04-30",
+      "id": "976f7165-c84e-481a-b9d2-ac6a56089283"
+    },
+    {
+      "position": { "lat": "52.51211679958202", "lng": "13.446661238647074" },
+      "imageUrl": "https://www.berlinclubs.com/images/katerholzig.jpg",
+      "imageAlt": "test",
+      "title": "test",
+      "price": "5423",
+      "timeStart": "12:03",
+      "timeEnd": "12:04",
+      "date": "2023-04-12",
+      "id": "e627e666-4d70-44af-8244-4b5cd0e0ca6e"
+    },
+    {
+      "position": { "lat": "52.49351684486871", "lng": "13.402715926147074" },
+      "imageUrl": "https://www.berlinclubs.com/images/katerholzig.jpg",
+      "imageAlt": "123",
+      "title": "123",
+      "price": "123",
+      "timeStart": "12:03",
+      "timeEnd": "12:03",
+      "date": "2023-04-14",
+      "id": "d28de83a-127b-451e-a809-0c97448b285b"
+    },
+    {
+      "position": { "lat": "52", "lng": "13" },
+      "imageUrl": "https://img.freepik.com/vektoren-kostenlos/feierhintergrund-mit-bunter-party-markierungsfahne-und-fallendem-confetti_1314-2538.jpg?w=2000",
+      "imageAlt": "festa junina",
+      "title": "festa junina",
+      "price": "123",
+      "timeStart": "12:34",
+      "timeEnd": "05:55",
+      "date": "2023-03-11",
+      "id": "086896e7-64fb-495a-ac44-8546f9a4e136"
+    },
+    {
+      "id": "1",
+      "position": { "lat": "52.525068719245006", "lng": "13.349403915674287" },
+      "imageUrl": "https://www.electronicbeats.net/app/uploads/fly-images/136397/berlinpeopel-960x500-c.jpg",
+      "imageAlt": "Best Techno Parties In Berlin",
+      "title": "Best Techno Parties In Berlin",
+      "checkedIn": "1200",
+      "price": "55",
+      "timeStart": "10:00",
+      "timeEnd": "5:00",
+      "date": "2023-04-12"
+    },
+    {
+      "position": { "lat": "52.545068719245006", "lng": "13.379403915674287" },
+      "imageUrl": "https://as1.ftcdn.net/v2/jpg/03/16/47/42/1000_F_316474238_69Akk15i3gsEp78WNv9aB5TMXFLO9YD6.jpg",
+      "imageAlt": "Pizza party",
+      "title": "Pizza party",
+      "price": "11",
+      "timeStart": "21:03",
+      "timeEnd": "04:02",
+      "date": "2023-03-08",
+      "id": "3"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+.gm-style .gm-style-iw-d {
+  overflow: hidden !important;
+}
+
+.gm-ui-hover-effect {
+  display: none !important;
+}
+.gm-style .gm-style-iw-t::after {
+  display: none !important;
+}
+.gm-style-iw.gm-style-iw-c {
+  padding: 0 !important;
+}
+
+.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom {
+  top: 0 !important;
+}

@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "email": "oi@oi.oi",
+      "password": "$2a$12$ZPaws87lSK4.KmW/.vYzBuygV.fnpl.L9XEeqvu4a7v2SFuzp/Rk2",
+      "username": "oiiiiiii",
+      "id": "a90d6596-58fe-425c-b2a8-68eac571be7f"
+    },
+    {
+      "email": "testagain@at.aa",
+      "password": "$2a$12$7xcKJ6MYd0XFjHBC5AN7/eZfY.pOBzMzVG/b5.Y4A3UTV9vUG7Fji",
+      "username": "testagain",
+      "dateCreated": "04/12/2023",
+      "id": "55c0e4d7-2f0a-4aba-b53c-3fd0789ca8f7"
+    },
+    {
+      "email": "test@test.test",
+      "password": "$2a$12$iDcEzeP2In2kt92etKdSpO62/7UhaXU5KhuCaYRj0uk99E80583Li",
+      "username": "Andre Luiz",
+      "dateCreated": "04/15/2023",
+      "id": "7e19accd-f63a-4f29-8600-6e575f6b951f"
+    }
+  ]
+}
