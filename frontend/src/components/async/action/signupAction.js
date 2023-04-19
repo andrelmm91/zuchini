@@ -1,6 +1,10 @@
 import { json, redirect } from "react-router-dom";
+// import { useSelector, useDispatch } from "react-redux";
+import { AuthActions } from "../../store/authManagementSlice";
 
 export default async function signupAction({ request, params }) {
+  // const dispatch = useDispatch();
+
   const data = await request.formData();
 
   console.log("email", data.get("email"));
@@ -38,6 +42,13 @@ export default async function signupAction({ request, params }) {
   const token = resData.token;
 
   localStorage.setItem("token", token);
+
+  // dispatch(
+  //   AuthActions.getTokenWhenEnter({
+  //     email: data.get("email"),
+  //     token: token,
+  //   })
+  // );
 
   const expiration = new Date();
   expiration.setHours(expiration.getHours() + 1);

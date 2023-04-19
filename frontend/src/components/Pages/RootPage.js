@@ -1,25 +1,38 @@
-import { Outlet, useLoaderData, useSubmit } from "react-router-dom";
+import { Outlet, redirect, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { getTokenDuration } from "../util/auth";
 
 import NavBarSideBar from "../NavBar/NavBarSideBar";
 // import NavBar2 from "../NavBar/NavBar2";
+import { useDispatch, useSelector } from "react-redux";
+import { cleanToken, tokenVerify } from "../store/auth-actions";
 
 function RootLayout() {
-  const token = useLoaderData();
-  const submit = useSubmit(); // send a logout request
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
   const userpath = window.location.pathname.toString();
+  const tokenDuration = getTokenDuration();
+
+  if (!token || tokenDuration < 0) {
+    navigate("/auth/logout");
+  }
 
   useEffect(() => {
-    if (!token) {
-      return;
-    }
+    dispatch(tokenVerify(token));
+  }, [dispatch, token, userpath]);
 
-    const tokenDuration = getTokenDuration();
+  const userValidated = useSelector((state) => state.authToken.validation);
+
+  if (userValidated === false) {
+    dispatch(cleanToken());
+    navigate("/auth/logout");
+  }
+
+  useEffect(() => {
     setTimeout(() => {
-      submit(null, { action: "auth/logout", method: "post" });
+      navigate("/auth/logout");
     }, tokenDuration); // in milisec
-  }, [token, submit, userpath]);
+  }, [token, userpath]);
 
   return (
     <NavBarSideBar>
@@ -29,3 +42,11 @@ function RootLayout() {
 }
 
 export default RootLayout;
+
+const getTokenDuration = () => {
+  const storedExpirationDate = localStorage.getItem("expiration");
+  const expirationDate = new Date(storedExpirationDate);
+  const now = new Date();
+  const duration = expirationDate.getTime() - now.getTime();
+  return duration;
+};

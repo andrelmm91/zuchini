@@ -5,12 +5,13 @@ import {
   IconButton,
   Center,
   Flex,
+  Avatar,
 } from "@chakra-ui/react";
 import { useJsApiLoader, GoogleMap } from "@react-google-maps/api";
 import { useState } from "react";
 import { FaLocationArrow } from "react-icons/fa";
 import mapStyles from "./mapDarkStyles";
-import googlemapsKey from "../../../keys/googlemapsKey";
+import googlemapsKey from "../../mapsKeys/googlemapsKey";
 
 function Maps(props) {
   const [map, setMap] = useState(/** @type google.maps.Map */ (null));

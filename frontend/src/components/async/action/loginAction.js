@@ -1,4 +1,5 @@
 import { json, redirect } from "react-router-dom";
+// import { useSelector, useDispatch } from "react-redux";
 
 export default async function loginAction({ request, params }) {
   const data = await request.formData();
@@ -27,6 +28,7 @@ export default async function loginAction({ request, params }) {
   const resData = await response.json();
   const token = resData.token;
 
+  // save token
   localStorage.setItem("token", token);
 
   const expiration = new Date();
