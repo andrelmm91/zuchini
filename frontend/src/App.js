@@ -23,7 +23,6 @@ import { tokenLoader } from "./components/util/auth";
 
 //actions
 import signupAction from "./components/async/action/signupAction";
-import loginAction from "./components/async/action/loginAction";
 import { action as eventAction } from "./components/async/action/createAction";
 
 // // // routing
@@ -83,7 +82,6 @@ const router = createBrowserRouter([
         index: true,
         path: "login",
         element: <AuthLoginPage />,
-        action: loginAction,
       },
       {
         index: true,
