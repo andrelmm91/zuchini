@@ -25,7 +25,6 @@ import { tokenLoader } from "./components/util/auth";
 import signupAction from "./components/async/action/signupAction";
 import loginAction from "./components/async/action/loginAction";
 import { action as eventAction } from "./components/async/action/createAction";
-import { logoutAction } from "./components/async/action/logoutAction";
 
 // // // routing
 const router = createBrowserRouter([

@@ -1,11 +1,11 @@
 import { Box, Heading, Text, Spinner } from "@chakra-ui/react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { logoutAction } from "../../async/action/logoutAction";
+import { useNavigate } from "react-router-dom";
 
 export default function LogoutPage() {
   const navigate = useNavigate();
 
-  logoutAction();
+  localStorage.removeItem("token");
+  localStorage.removeItem("expiration");
 
   setTimeout(() => {
     console.log("logging out");

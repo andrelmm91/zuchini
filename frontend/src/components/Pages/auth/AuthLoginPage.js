@@ -20,9 +20,16 @@ import { GiOwl } from "react-icons/gi";
 import { BiShow, BiHide } from "react-icons/bi";
 
 import { Form, Link as RouteLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { cleanToken } from "../../store/auth-actions";
 
 export default function AuthLoginPage() {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+
+  localStorage.removeItem("token");
+  localStorage.removeItem("expiration");
+  dispatch(cleanToken());
 
   return (
     <Flex
