@@ -1,0 +1,9 @@
+git remote add upstream https://github.com/andrelmm91/zuchini.git
+git fetch upstream
+git checkout 1.0.0
+
+git add .
+git commit -m ""
+git push upstream
+
+git branch

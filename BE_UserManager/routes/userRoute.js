@@ -1,6 +1,10 @@
 const express = require("express");
 const { add, get } = require("../data/user");
-const { createJSONToken, isValidPassword } = require("../util/auth");
+const {
+  createJSONToken,
+  isValidPassword,
+  createJsonToken2,
+} = require("../util/auth");
 const { isValidEmail, isValidText } = require("../util/validation");
 
 const router = express.Router();
@@ -37,10 +41,15 @@ router.post("/signup", async (req, res, next) => {
 
   try {
     const createdUser = await add(data);
-    const authToken = createJSONToken(createdUser.email);
-    res
-      .status(201)
-      .json({ message: "User created.", user: createdUser, token: authToken });
+    // const authToken = createJSONToken(createdUser.email);
+    const authToken = await createJsonToken2(data.email);
+    // const dataAuthToken = await authToken.json();
+
+    res.status(201).json({
+      message: "User created.",
+      user: createdUser,
+      token: authToken.token,
+    });
   } catch (error) {
     next(error);
   }
@@ -66,8 +75,10 @@ router.post("/login", async (req, res) => {
     });
   }
 
-  const token = createJSONToken(email);
-  res.json({ token });
+  // const token = createJSONToken(email);
+  const authToken = await createJsonToken2(email);
+
+  res.json({ message: "Login successfully.", token: authToken.token });
 });
 
 module.exports = router;

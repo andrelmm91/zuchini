@@ -23,9 +23,7 @@ router.post("/provide", async (req, res) => {
 
   const authToken = createJSONToken(data.email);
 
-  res
-    .status(201)
-    .json({ message: "Token created.", email: data.email, token: authToken });
+  res.status(201).json({ message: "Token created.", token: authToken });
 });
 
 //////////////////////
