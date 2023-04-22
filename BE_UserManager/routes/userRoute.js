@@ -1,10 +1,6 @@
 const express = require("express");
 const { add, get } = require("../data/user");
-const {
-  createJSONToken,
-  isValidPassword,
-  createJsonToken2,
-} = require("../util/auth");
+const { isValidPassword, createJsonToken2 } = require("../util/auth");
 const { isValidEmail, isValidText } = require("../util/validation");
 
 const router = express.Router();
@@ -41,9 +37,7 @@ router.post("/signup", async (req, res, next) => {
 
   try {
     const createdUser = await add(data);
-    // const authToken = createJSONToken(createdUser.email);
     const authToken = await createJsonToken2(data.email);
-    // const dataAuthToken = await authToken.json();
 
     res.status(201).json({
       message: "User created.",
@@ -75,7 +69,6 @@ router.post("/login", async (req, res) => {
     });
   }
 
-  // const token = createJSONToken(email);
   const authToken = await createJsonToken2(email);
 
   res.json({ message: "Login successfully.", token: authToken.token });

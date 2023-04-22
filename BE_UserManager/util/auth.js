@@ -4,10 +4,6 @@ const { NotAuthError } = require("./errors");
 
 const KEY = "supersecret";
 
-function createJSONToken(email) {
-  return sign({ email }, KEY, { expiresIn: "1h" });
-}
-
 function validateJSONToken(token) {
   return verify(token, KEY);
 }
@@ -41,7 +37,7 @@ function checkAuthMiddleware(req, res, next) {
   next();
 }
 
-async function createJsonToken2({ email }) {
+async function createJsonToken2(email) {
   const response = await fetch("http://localhost:8083/provide", {
     method: "POST",
     headers: {
@@ -51,14 +47,13 @@ async function createJsonToken2({ email }) {
   });
 
   if (!response.ok) {
-    throw new Error("Could not validate data!");
+    throw new Error("Could not provide token!", email);
   }
 
   const data = await response.json();
   return data;
 }
 
-exports.createJSONToken = createJSONToken;
 exports.createJsonToken2 = createJsonToken2;
 exports.validateJSONToken = validateJSONToken;
 exports.isValidPassword = isValidPassword;
