@@ -5,6 +5,7 @@ import NavBarSideBar from "../NavBar/NavBarSideBar";
 // import NavBar2 from "../NavBar/NavBar2";
 import { useDispatch, useSelector } from "react-redux";
 import { cleanToken, tokenVerify } from "../store/auth-actions";
+import NavBar from "../NavBar/NavBar";
 
 function RootLayout() {
   const dispatch = useDispatch();
@@ -35,9 +36,11 @@ function RootLayout() {
   }, [token, userpath]);
 
   return (
-    <NavBarSideBar>
+    <NavBar>
       <Outlet />
-    </NavBarSideBar>
+    </NavBar>
+    // <NavBarSideBar>
+    // </NavBarSideBar>
   );
 }
 

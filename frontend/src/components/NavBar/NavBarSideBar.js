@@ -31,7 +31,7 @@ import {
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { GiOwl } from "react-icons/gi";
 import { GrUserAdmin } from "react-icons/gr";
-import { NavLink, redirect, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import colorPalettes from "../colorSettings/colorPalettes";
 const color = colorPalettes();
@@ -55,7 +55,6 @@ const LinkItems = [
 ];
 
 export default function SidebarWithHeader({ children }) {
-  const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH="100vh" w="100vw" bg={color.background}>

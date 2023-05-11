@@ -24,6 +24,7 @@ import { tokenLoader } from "./components/util/auth";
 //actions
 import signupAction from "./components/async/action/signupAction";
 import { action as eventAction } from "./components/async/action/createAction";
+import UserProfile from "./components/Pages/UserProfile";
 
 // // // routing
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         path: "explore",
         element: <Explore />,
         loader: eventLoader,
+      },
+      {
+        path: "profile",
+        element: <UserProfile />,
       },
       {
         path: "events",

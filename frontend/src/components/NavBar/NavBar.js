@@ -5,6 +5,7 @@ import {
   HStack,
   Link,
   IconButton,
+  Text,
   Button,
   Menu,
   MenuButton,
@@ -15,13 +16,22 @@ import {
   useColorModeValue,
   Stack,
 } from "@chakra-ui/react";
-
-import { GiHamburgerMenu } from "react-icons/gi";
-import { GrClose } from "react-icons/gr";
+import { GiOwl } from "react-icons/gi";
+import { FiMenu } from "react-icons/fi";
+import { AiOutlineClose } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 
 const Links = ["Dashboard", "Projects", "Team"];
 
-const NavLink = () => (
+const LinkItems = [
+  { name: "Explore", href: "explore" },
+  { name: "Saved", href: "/" },
+  { name: "Group", href: "/" },
+  { name: "Event Table", href: "/events" },
+  { name: "Event Dashboard", href: "/dashboardEvents" },
+];
+
+const NavItem = ({ link }) => (
   <Link
     px={2}
     py={1}
@@ -30,11 +40,14 @@ const NavLink = () => (
       textDecoration: "none",
       bg: useColorModeValue("gray.200", "gray.700"),
     }}
-    href={"#"}
-  ></Link>
+    as={NavLink}
+    to={link.href}
+  >
+    <p>{link.name}</p>
+  </Link>
 );
 
-export default function NavBar2({ children }) {
+export default function NavBar({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -43,20 +56,22 @@ export default function NavBar2({ children }) {
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
-            icon={isOpen ? <GrClose /> : <GiHamburgerMenu />}
+            icon={isOpen ? <AiOutlineClose /> : <FiMenu />}
             aria-label={"Open Menu"}
             display={{ md: "none" }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <HStack spacing={8} alignItems={"center"}>
-            <Box>Logo</Box>
+          <HStack spacing="3rem" alignItems={"center"}>
+            <Text fontSize="2rem">
+              <GiOwl />
+            </Text>
             <HStack
               as={"nav"}
               spacing={4}
               display={{ base: "none", md: "flex" }}
             >
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+              {LinkItems.map((link) => (
+                <NavItem key={link.name} link={link} />
               ))}
             </HStack>
           </HStack>
@@ -76,11 +91,15 @@ export default function NavBar2({ children }) {
                   }
                 />
               </MenuButton>
-              <MenuList>
-                <MenuItem>Link 1</MenuItem>
-                <MenuItem>Link 2</MenuItem>
+              <MenuList zIndex={3}>
+                <NavLink to="/profile">
+                  <MenuItem>Profile</MenuItem>
+                </NavLink>
+
                 <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
+                <NavLink to="/auth/logout">
+                  <MenuItem>Sign out</MenuItem>
+                </NavLink>
               </MenuList>
             </Menu>
           </Flex>
@@ -89,16 +108,15 @@ export default function NavBar2({ children }) {
         {isOpen ? (
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+              {LinkItems.map((link) => (
+                <NavItem key={link.name} link={link} />
               ))}
             </Stack>
           </Box>
         ) : null}
       </Box>
-      <Box ml={{ base: 0, md: 60 }} p="0" m={0}>
-        {children}
-      </Box>
+
+      <Box>{children}</Box>
     </>
   );
 }
