@@ -3,18 +3,18 @@ import { Suspense } from "react";
 import { useLoaderData, Await, useNavigate } from "react-router-dom";
 
 import EventTable from "../events/EventTable";
-import EventFrame from "../events/EventFrame";
+import Frame from "../cards/Frame";
 
 export default function EventPage() {
   const { events } = useLoaderData();
 
   return (
-    <EventFrame>
+    <Frame>
       <Suspense fallback={<Spinner size="xl" />}>
         <Await resolve={events}>
           {(loadedEvents) => <EventTable events={loadedEvents} />}
         </Await>
       </Suspense>
-    </EventFrame>
+    </Frame>
   );
 }

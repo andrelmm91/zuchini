@@ -5,7 +5,6 @@ import { Suspense } from "react";
 import { useLoaderData, Await } from "react-router-dom";
 
 import Card from "../cards/Card";
-import EventFrame from "./EventFrame";
 
 export default function DashboardEvents() {
   const { events } = useLoaderData();

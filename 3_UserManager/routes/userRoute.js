@@ -74,7 +74,11 @@ router.post("/login", async (req, res) => {
   res.json({ message: "Login successfully.", token: authToken.token });
 });
 
-router.post("/editUser", async (req, res) => {
+router.post("/edit", async (req, res) => {
+  const email = req.body.email;
+});
+
+router.post("/delete", async (req, res) => {
   const email = req.body.email;
 });
 

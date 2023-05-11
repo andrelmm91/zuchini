@@ -2,7 +2,7 @@ import { useColorModeValue } from "@chakra-ui/react";
 
 import { Flex, Box, Stack } from "@chakra-ui/react";
 
-export default function EventFrame(props) {
+export default function Frame(props) {
   return (
     <Flex align={"center"} justify={"center"}>
       <Stack spacing={8} mx={"auto"} maxW={"100rem"} py={12} px={6}>

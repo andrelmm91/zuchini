@@ -1,5 +1,5 @@
 import AddEditEvent from "../events/AddEditEvent";
-import EventFrame from "../events/EventFrame";
+import EventFrame from "../cards/Frame";
 
 export default function NewEvent() {
   return (
