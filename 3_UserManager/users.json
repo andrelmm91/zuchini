@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "email": "a@a.a",
+      "password": "$2a$12$35eIfpnptpvKyJbvWTVc..G3X0v/bTPsAdt2nLgeiDKSwvWLYFSGu",
+      "username": "aaaaaaa",
+      "dateCreated": "04/20/2023",
+      "id": "855b320d-9e34-44bf-87ae-381b5df46a6e"
+    },
+    {
+      "email": "aa@aa.a",
+      "password": "$2a$12$wwI8MLCZ0wOF5mNB6oPbvO/ZwRVUsV/BxQkiHsElHITNpjZsMUtdK",
+      "username": "Sr new Account",
+      "dateCreated": "04/22/2023",
+      "id": "d77da654-83ba-45a4-a3a2-f3e8a2eb0e5a"
+    }
+  ]
+}
