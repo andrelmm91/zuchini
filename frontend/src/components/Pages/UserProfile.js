@@ -1,10 +1,10 @@
 import Profile from "../Profile/Profile";
-import EventFrame from "../cards/Frame";
+import Frame from "../cards/Frame";
 
-export default function NewEvent() {
+export default function UserProfile() {
   return (
-    <EventFrame>
+    <Frame>
       <Profile />
-    </EventFrame>
+    </Frame>
   );
 }
