@@ -78,6 +78,18 @@ router.post("/edit", async (req, res) => {
   const email = req.body.email;
 });
 
+router.post("/username", async (req, res) => {
+  const email = req.body.email;
+  let user;
+  try {
+    user = await get(email);
+  } catch (error) {
+    return res.status(401).json({ message: "Authentication failed." });
+  }
+
+  res.json({ userName: user.username });
+});
+
 router.post("/delete", async (req, res) => {
   const email = req.body.email;
 });

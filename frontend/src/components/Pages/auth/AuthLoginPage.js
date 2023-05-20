@@ -21,7 +21,7 @@ import { BiShow, BiHide } from "react-icons/bi";
 
 import { Form, Link as RouteLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { cleanToken, tokenVerify } from "../../store/auth-actions";
+import { cleanToken, userLoggedInEmail } from "../../store/auth-actions";
 
 export default function AuthLoginPage() {
   const dispatch = useDispatch();
@@ -60,6 +60,9 @@ export default function AuthLoginPage() {
       const expiration = new Date();
       expiration.setHours(expiration.getHours() + 1);
       localStorage.setItem("expiration", expiration.toISOString());
+
+      // dispatch user email
+      dispatch(userLoggedInEmail(email));
 
       navigate("/");
     } catch (error) {

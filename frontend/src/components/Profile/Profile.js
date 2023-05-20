@@ -3,23 +3,16 @@ import Frame from "../cards/Frame";
 import {
   Container,
   Flex,
-  Avatar,
   Box,
-  Heading,
   Text,
   IconButton,
   Button,
   VStack,
-  HStack,
-  Wrap,
-  WrapItem,
   FormControl,
   FormLabel,
   Input,
   InputGroup,
   InputLeftElement,
-  Textarea,
-  Image,
   Link,
   InputRightElement,
 } from "@chakra-ui/react";
@@ -38,9 +31,9 @@ export default function Profile() {
         <Box p={4}>
           <Box p={5} bg="white" borderRadius="lg">
             <VStack spacing={5}>
-              <FormControl id="name">
+              <FormControl id="name" isReadOnly={isEmailChanged ? false : true}>
                 <FormLabel>Your Name</FormLabel>
-                <InputGroup borderColor="#E0E1E7">
+                <InputGroup borderColor="none">
                   <InputLeftElement
                     pointerEvents="none"
                     children={<BsPerson color="gray.800" />}
@@ -53,22 +46,19 @@ export default function Profile() {
                         setIsNameChanged((isNameChanged) => !isNameChanged)
                       }
                     >
-                      <Text
-                        color={
-                          isEmailChanged || isNameChanged
-                            ? "#0D74FF"
-                            : "gray.900"
-                        }
-                      >
+                      <Text color={isNameChanged ? "#0D74FF" : "gray.900"}>
                         Edit
                       </Text>
                     </IconButton>
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
-              <FormControl id="name">
-                <FormLabel>Mail</FormLabel>
-                <InputGroup borderColor="#E0E1E7">
+              <FormControl
+                id="email"
+                isReadOnly={isEmailChanged ? false : true}
+              >
+                <FormLabel>Email</FormLabel>
+                <InputGroup>
                   <InputLeftElement
                     pointerEvents="none"
                     children={<MdOutlineEmail color="gray.800" />}
@@ -81,7 +71,9 @@ export default function Profile() {
                         setIsEmailChanged((isEmailChanged) => !isEmailChanged)
                       }
                     >
-                      <Text>Edit</Text>
+                      <Text color={isEmailChanged ? "#0D74FF" : "gray.900"}>
+                        Edit
+                      </Text>
                     </IconButton>
                   </InputRightElement>
                 </InputGroup>
@@ -91,7 +83,7 @@ export default function Profile() {
                   Change password
                 </Link>
               </Box>
-              <FormControl id="name" float="right">
+              <FormControl>
                 <Button
                   variant="solid"
                   bg={isEmailChanged || isNameChanged ? "#0D74FF" : "gray.300"}

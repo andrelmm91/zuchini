@@ -92,7 +92,7 @@ const router = createBrowserRouter([
         index: true,
         path: "signup",
         element: <AuthSignupPage />,
-        action: signupAction,
+        // action: signupAction,
       },
       {
         index: true,

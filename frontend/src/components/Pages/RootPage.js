@@ -1,7 +1,6 @@
 import { Outlet, redirect, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-import NavBarSideBar from "../NavBar/NavBarSideBar";
 // import NavBar2 from "../NavBar/NavBar2";
 import { useDispatch, useSelector } from "react-redux";
 import { cleanToken, tokenVerify } from "../store/auth-actions";
@@ -39,8 +38,6 @@ function RootLayout() {
     <NavBar>
       <Outlet />
     </NavBar>
-    // <NavBarSideBar>
-    // </NavBarSideBar>
   );
 }
 

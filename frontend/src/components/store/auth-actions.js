@@ -47,3 +47,13 @@ export const cleanToken = () => {
     dispatch(AuthActions.cleanUpToken());
   };
 };
+
+export const userLoggedInEmail = (email) => {
+  return (dispatch) => {
+    dispatch(
+      AuthActions.loggedInEmail({
+        email: email,
+      })
+    );
+  };
+};
