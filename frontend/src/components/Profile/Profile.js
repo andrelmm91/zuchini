@@ -8,6 +8,7 @@ import {
   IconButton,
   Button,
   VStack,
+  HStack,
   FormControl,
   FormLabel,
   Input,
@@ -18,12 +19,16 @@ import {
 } from "@chakra-ui/react";
 import { MdOutlineEmail } from "react-icons/md";
 import { BsPerson } from "react-icons/bs";
-import { Link as RouteLink } from "react-router-dom";
+import { Link as RouteLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Profile() {
   const [isNameChanged, setIsNameChanged] = useState(false);
   const [isEmailChanged, setIsEmailChanged] = useState(false);
+  const email = useSelector((state) => state.authToken.email);
+  const navigate = useNavigate();
+  const username = getUserName(email);
 
   return (
     <Container maxW="full" mt={0} centerContent overflow="hidden">
@@ -63,7 +68,7 @@ export default function Profile() {
                     pointerEvents="none"
                     children={<MdOutlineEmail color="gray.800" />}
                   />
-                  <Input type="text" size="md" />
+                  <Input type="text" size="md" defaultValue={email} />
                   <InputRightElement>
                     <IconButton
                       variant={"ghost"}
@@ -84,14 +89,23 @@ export default function Profile() {
                 </Link>
               </Box>
               <FormControl>
-                <Button
-                  variant="solid"
-                  bg={isEmailChanged || isNameChanged ? "#0D74FF" : "gray.300"}
-                  color={isEmailChanged || isNameChanged ? "white" : "gray.900"}
-                  disabled={isEmailChanged || isNameChanged}
-                >
-                  Apply changes
-                </Button>
+                <HStack>
+                  <Button
+                    variant="solid"
+                    bg={
+                      isEmailChanged || isNameChanged ? "#0D74FF" : "gray.300"
+                    }
+                    color={
+                      isEmailChanged || isNameChanged ? "white" : "gray.900"
+                    }
+                    disabled={isEmailChanged || isNameChanged}
+                  >
+                    Apply changes
+                  </Button>
+                  <Button variant="solid" onClick={() => navigate("..")}>
+                    Cancel
+                  </Button>
+                </HStack>
               </FormControl>
             </VStack>
           </Box>
@@ -100,3 +114,5 @@ export default function Profile() {
     </Container>
   );
 }
+
+async function getUserName(email) {}

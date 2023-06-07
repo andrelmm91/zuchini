@@ -13,6 +13,13 @@
       "username": "Sr new Account",
       "dateCreated": "04/22/2023",
       "id": "d77da654-83ba-45a4-a3a2-f3e8a2eb0e5a"
+    },
+    {
+      "email": "b@b.b",
+      "password": "$2a$12$gTiDvsS4XHxExID9j.jmWeIXtugrehZHjYrf53N9ny.g/Sa2wTO.O",
+      "username": "Sr. BBB",
+      "dateCreated": "05/20/2023",
+      "id": "c1f1e3ce-3f7d-4a6a-a432-7902950d8eae"
     }
   ]
 }

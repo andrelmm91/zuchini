@@ -48,7 +48,7 @@ export const cleanToken = () => {
   };
 };
 
-export const userLoggedInEmail = (email) => {
+export const userLoggedInEmail = (email, username) => {
   return (dispatch) => {
     dispatch(
       AuthActions.loggedInEmail({
