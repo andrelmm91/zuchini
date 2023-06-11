@@ -9,13 +9,15 @@ async function readData() {
   const data = await fs.readFile("events.json", "utf8");
   return JSON.parse(data);
 }
-
-// CRUD database
+// save
 async function writeData(data) {
   await fs.writeFile("events.json", JSON.stringify(data));
 }
 
+//////////////////////
+/////////////////////////
 //// CRUD operations
+//get all
 async function getAll() {
   const storedData = await readData();
   if (!storedData.events) {
@@ -23,7 +25,7 @@ async function getAll() {
   }
   return storedData.events;
 }
-
+//get per id
 async function get(id) {
   const storedData = await readData();
   if (!storedData.events || storedData.events.length === 0) {
@@ -36,13 +38,13 @@ async function get(id) {
   }
   return event;
 }
-
+// add
 async function add(data) {
   const storedData = await readData();
   storedData.events.unshift({ ...data, id: generateId() });
   await writeData(storedData);
 }
-
+//edit
 async function replace(eventId, data) {
   const storedData = await readData();
 
@@ -59,7 +61,7 @@ async function replace(eventId, data) {
 
   await writeData(storedData);
 }
-
+//remove
 async function remove(id) {
   const storedData = await readData();
   const updatedData = storedData.events.filter((ev) => ev.id !== id);

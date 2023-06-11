@@ -5,7 +5,8 @@ const authToken = require("./routes/authToken");
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(bodyParser.json()); // body parser receving data
+
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST");

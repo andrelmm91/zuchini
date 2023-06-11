@@ -1,9 +1,14 @@
 const bodyParser = require("body-parser");
 const express = require("express");
+const mongoose = require("mongoose");
 
 const eventRoutes = require("./routes/events");
+const { mongodbConnection } = require("./MongoDB/mongodbConnection");
 
 const app = express();
+
+// ---------------------------- //
+// ---------------------------- //
 
 app.use(bodyParser.json());
 app.use((req, res, next) => {
@@ -21,4 +26,15 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message: message });
 });
 
-app.listen(8080);
+// // app listerning with mongodb
+// app.listen(8080);
+
+// Settings up a mongoDB via Mongoose
+//// ////
+
+mongoose
+  .connect(mongodbConnection)
+  .then((result) => {
+    app.listen(8080);
+  })
+  .catch((err) => console.log(err));
