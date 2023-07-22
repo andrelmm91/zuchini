@@ -1,4 +1,5 @@
 const fs = require("node:fs/promises");
+const Event = require("../MongoDB/models");
 
 const { v4: generateId } = require("uuid");
 
@@ -11,6 +12,7 @@ async function readData() {
 }
 // save
 async function writeData(data) {
+  // // adding to json file
   await fs.writeFile("events.json", JSON.stringify(data));
 }
 
@@ -19,12 +21,24 @@ async function writeData(data) {
 //// CRUD operations
 //get all
 async function getAll() {
-  const storedData = await readData();
-  if (!storedData.events) {
-    throw new NotFoundError("Could not find any events.");
-  }
-  return storedData.events;
+  const allEvents = await Event.find()
+    .then((events) => {
+      return events;
+    })
+    .catch((err) => {
+      // Handle the error if necessary
+      console.error("Error:", err);
+    });
+  return allEvents;
+
+  // ////
+  // const storedData = await readData();
+  // if (!storedData.events) {
+  //   throw new NotFoundError("Could not find any events.");
+  // }
+  // return storedData.events;
 }
+
 //get per id
 async function get(id) {
   const storedData = await readData();
@@ -38,12 +52,49 @@ async function get(id) {
   }
   return event;
 }
+
 // add
 async function add(data) {
+  ///////////////////////////
+  //implementing Mongoose tro save into mongoDB
+  console.log("I passed here 1");
+  const eventCreated = new Event({
+    id: generateId(),
+    position: {
+      lat: data.position.lat,
+      lng: data.position.lng,
+    },
+    imageUrl: data.imageUrl,
+    imageAlt: data.imageAlt,
+    title: data.title,
+    price: data.price,
+    timeStart: data.timeStart,
+    timeEnd: data.timeEnd,
+    date: data.date,
+  });
+  //saving
+  console.log("I passed here 2");
+
+  // eventCreated.save(function (err, doc) {
+  //   if (err) return console.error(err);
+  //   console.log("Document inserted succussfully!");
+  // });
+
+  eventCreated
+    .save()
+    .then(() => {
+      console.log("Event saved in MongoDB");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  ////////////
   const storedData = await readData();
   storedData.events.unshift({ ...data, id: generateId() });
   await writeData(storedData);
 }
+
 //edit
 async function replace(eventId, data) {
   const storedData = await readData();
@@ -61,6 +112,7 @@ async function replace(eventId, data) {
 
   await writeData(storedData);
 }
+
 //remove
 async function remove(id) {
   const storedData = await readData();

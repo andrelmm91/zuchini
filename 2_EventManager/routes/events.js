@@ -14,8 +14,10 @@ const router = express.Router();
 // // gets and send all information
 router.get("/", async (req, res, next) => {
   try {
-    const events = await getAll();
-    res.json({ events: events });
+    console.log("I passed here before reading data");
+    const allEvents = await getAll();
+    console.log("I passed here after reading data:", allEvents);
+    res.json({ events: allEvents });
   } catch (error) {
     next(error);
   }
@@ -59,6 +61,7 @@ router.post("/", async (req, res, next) => {
     errors.position = "Invalid position.";
   }
 
+  console.log("I passed here");
   console.log(errors);
 
   if (Object.keys(errors).length > 0) {

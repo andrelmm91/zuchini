@@ -35,6 +35,7 @@ app.use((error, req, res, next) => {
 mongoose
   .connect(mongodbConnection)
   .then((result) => {
+    console.log("Connection Successful!");
     app.listen(8080);
   })
   .catch((err) => console.log(err));
