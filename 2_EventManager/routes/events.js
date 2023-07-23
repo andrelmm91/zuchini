@@ -14,9 +14,10 @@ const router = express.Router();
 // // gets and send all information
 router.get("/", async (req, res, next) => {
   try {
-    console.log("I passed here before reading data");
     const allEvents = await getAll();
-    console.log("I passed here after reading data:", allEvents);
+    console.log(
+      "DB responsed ok with " + Object.keys(allEvents).length + " events"
+    );
     res.json({ events: allEvents });
   } catch (error) {
     next(error);
