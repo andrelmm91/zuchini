@@ -2,7 +2,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const mongoose = require("mongoose");
 
-const eventRoutes = require("./routes/events");
+const eventRoutes = require("./routes/RouteEvents");
 const { mongodbConnection } = require("./MongoDB/mongodbConnection");
 
 const app = express();
